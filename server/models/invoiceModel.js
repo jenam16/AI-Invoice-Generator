@@ -57,6 +57,7 @@ const InvoiceSchema = new mongoose.Schema({
       address: { type: String, default: "" },
       phone: { type: String, default: "" },
     },
+    items:{type:[ItemSchema],default:[]},
 
     currency: { type: String, default: "INR" },
     status: { type: String, enum: ["draft", "unpaid", "paid", "overdue"], default: "draft" },
