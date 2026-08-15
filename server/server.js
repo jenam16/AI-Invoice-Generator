@@ -4,6 +4,7 @@ import 'dotenv/config';
 import { clerkMiddleware } from "@clerk/express";
 import {connectDB} from './config/db.js'
 import invoiceRouter from './routes/invoiceRoutes.js';
+import businessProfileRouter from './routes/businessProfileRouter.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -22,6 +23,7 @@ connectDB();
 app.use('/uploads',express.static(Path2D.join(process.cwd(),"uploads")))
 
 app.use('/api/invoice',invoiceRouter); 
+app.use('/api/businessProfile',businessProfileRouter)
 
 app.get('/',(req,res)=>{
     res.send("Api working")
